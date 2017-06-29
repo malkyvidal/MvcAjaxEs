@@ -1,0 +1,61 @@
+﻿@model MvcAjaxEs.Models.Solicitud
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>Solicitud</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdSolicitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdSolicitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+    </dl>
+</div>
+@Html.Action("Dependendencias")
+<div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+</div>
+
+@section scripts{
+    
+    <script>
+        $(document).ready(function () {
+            
+            $("body").on("click", "table tr td a", function (event) {
+
+                event.preventDefault();
+                
+                var url = $(this).attr("href");
+                var idDep = $(this).attr("id");
+
+                var rutaCompleta = url + "?" + "idDependencia=" + idDep + "&idSolicitud=" + '@Model.IdSolicitud';
+               // alert(rutaCompleta);
+
+                $("#ventanaModal").load(rutaCompleta);
+                $("#ventanaModal").modal("show");
+
+            })
+
+
+        })
+    </script>
+    
+    
+    }

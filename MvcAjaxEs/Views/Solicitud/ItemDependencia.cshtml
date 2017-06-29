@@ -1,0 +1,22 @@
+﻿@model MvcAjaxEs.Models.Dependencia
+
+<td>
+    @Html.DisplayFor(modelItem => @Model.IdSolicitud)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => @Model.IdDependencia)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => @Model.Nombre)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => @Model.FechaDesde)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => @Model.FechaHasta)
+</td>
+<td>
+    @Html.ActionLink("Edit", "Edit",null, new { id=@Model.IdDependencia}) |
+    
+    @Html.ActionLink("Delete", "Delete", null, new { id = @Model.IdDependencia })
+</td>
