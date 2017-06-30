@@ -23,7 +23,19 @@ namespace MvcAjaxEs.Controllers
 
         public ActionResult Edit(int idDependencia,int idSolicitud)
         {
-            var depe = RepositorySolicitud.GetSolicitud().Dependencias.Where(d => d.IdDependencia == 1 && d.IdSolicitud == idSolicitud).FirstOrDefault();
+            var depe = RepositorySolicitud.GetSolicitud().Dependencias.Where(d => d.IdDependencia == idDependencia & d.IdSolicitud == idSolicitud).FirstOrDefault();
+            return PartialView(depe);
+        }
+        [HttpPost]
+        public ActionResult Edit(Dependencia dep)
+        {
+            int de = 3;
+            return PartialView("ItemDependencia",dep);
+        }
+
+        public ActionResult Delete(int idDependencia, int idSolicitud)
+        {
+            var depe = RepositorySolicitud.GetSolicitud().Dependencias.Where(d => d.IdDependencia == idDependencia & d.IdSolicitud == idSolicitud).FirstOrDefault();
             return PartialView(depe);
         }
     }

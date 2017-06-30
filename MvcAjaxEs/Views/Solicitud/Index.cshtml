@@ -48,9 +48,41 @@
                 var rutaCompleta = url + "?" + "idDependencia=" + idDep + "&idSolicitud=" + '@Model.IdSolicitud';
                // alert(rutaCompleta);
 
-                $("#ventanaModal").load(rutaCompleta);
-                $("#ventanaModal").modal("show");
+                console.log(idDep);
 
+                $("#ventanaModal").load(rutaCompleta, null, function () {
+                    $("#ventanaModal").modal("show");
+                });
+                
+                
+                //$.get(rutaCompleta, null, function (response) {
+
+                //    $("#ventanaModal").html('');
+
+                //    $("#ventanaModal").html(response);
+                //    $("#ventanaModal").modal("show");
+                //})
+
+            })
+
+
+
+            $("body").on("submit", "#editForm", function (event) {
+
+
+                event.preventDefault();
+
+                var data = $(this).serialize();
+                var url = $(this).attr('action');
+                var idDep = $("#IdDependencia", this).val();
+                $.post(url, data, function (response) {
+
+                    
+                    //$("table #" + idDep).html('');
+                    $("table #" + idDep).html(response);
+                   
+                    $("#ventanaModal").modal("toggle");
+                })
             })
 
 

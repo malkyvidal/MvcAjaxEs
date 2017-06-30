@@ -232,6 +232,7 @@
     <Content Include="Views\Solicitud\Dependendencias.cshtml" />
     <Content Include="Views\Solicitud\ItemDependencia.cshtml" />
     <Content Include="Views\Solicitud\Edit.cshtml" />
+    <Content Include="Views\Solicitud\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
